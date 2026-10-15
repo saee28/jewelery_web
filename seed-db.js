@@ -1,0 +1,1 @@
+require('dotenv').config();const fs=require('fs'),path=require('path'),db=require('../lib/db');(async()=>{await db.query(fs.readFileSync(path.join(__dirname,'../database/seed.sql'),'utf8'));console.log('Categories and products seeded');await db.pool.end();})().catch(e=>{console.error(e);process.exit(1)});
